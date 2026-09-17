@@ -45,17 +45,21 @@ public sealed partial class CombatModeVisualsSystem : SharedCombatModeVisualsSys
         // turn on combat visuals if the mob is alive and in combat mode. otherwise turn them off
         _sprite.LayerSetVisible(combatLayer, _mobState.IsAlive(ent) && combat.IsInCombatMode);
 
-        if (!_sprite.TryGetLayer((ent, args.Sprite), DamageStateVisualLayers.Base, out var baseLayer, false))
-            return;
+        // shamelessly taking this key method from DamageStateVisualizerSystem
+        foreach (var key in new[] { DamageStateVisualLayers.Base, DamageStateVisualLayers.BaseUnshaded })
+        {
+            if (!_sprite.TryGetLayer((ent, args.Sprite), key, out var baseLayer, false))
+                return;
 
-        // handle hiding/unhiding the base layer if applicable
-        if (ent.Comp.HideBaseLayer && _mobState.IsAlive(ent))
-            _sprite.LayerSetVisible(baseLayer, !combat.IsInCombatMode);
-        else if (ent.Comp.HideBaseLayer)
-            _sprite.LayerSetVisible(baseLayer, true);
+            // handle hiding/unhiding the base layer if applicable
+            if (ent.Comp.HideBaseLayer && _mobState.IsAlive(ent))
+                _sprite.LayerSetVisible(baseLayer, !combat.IsInCombatMode);
+            else if (ent.Comp.HideBaseLayer)
+                _sprite.LayerSetVisible(baseLayer, true);
 
-        // then sync them to the base animation
-        if (combatLayer.AutoAnimated)
-            _sprite.LayerSetAnimationTime(combatLayer, baseLayer.AnimationTime);
+            // then sync them to the base animation
+            if (combatLayer.AutoAnimated)
+                _sprite.LayerSetAnimationTime(combatLayer, baseLayer.AnimationTime);
+        }
     }
 }
