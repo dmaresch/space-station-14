@@ -49,7 +49,7 @@ public sealed partial class CombatModeVisualsSystem : SharedCombatModeVisualsSys
         foreach (var key in new[] { DamageStateVisualLayers.Base, DamageStateVisualLayers.BaseUnshaded })
         {
             if (!_sprite.TryGetLayer((ent, args.Sprite), key, out var baseLayer, false))
-                return;
+                continue;
 
             // handle hiding/unhiding the base layer if applicable
             if (ent.Comp.HideBaseLayer && _mobState.IsAlive(ent))
