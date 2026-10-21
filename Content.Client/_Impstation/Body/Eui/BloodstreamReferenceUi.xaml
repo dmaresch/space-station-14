@@ -1,0 +1,27 @@
+<DefaultWindow
+    SetSize="300 400"
+    Margin="4 0"
+    xmlns="https://spacestation14.io">
+    <BoxContainer Orientation="Vertical">
+        <!-- this stuff was taken straight from EditSolutionsWindow -->
+        <!-- The total volume / capacity of the solution -->
+        <BoxContainer Name="VolumeBox" Orientation="Vertical" HorizontalExpand="True" Margin="0 4"/>
+
+        <!-- The temperature / heat capacity / thermal energy of the solution -->
+        <Collapsible>
+            <CollapsibleHeading Name="ThermalHeading" Title="{Loc 'admin-solutions-window-thermals'}" />
+            <CollapsibleBody>
+                <BoxContainer Name="ThermalBox" Orientation="Vertical" HorizontalExpand="True" Margin="0 4"/>
+            </CollapsibleBody>
+        </Collapsible>
+
+        <!-- The reagents in the solution -->
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" Margin="0 4">
+            <BoxContainer Name="ReagentList" Orientation="Vertical"/>
+        </ScrollContainer>
+
+        <Button Name="AddButton" Text="{Loc 'admin-solutions-window-add-new-button'}" HorizontalExpand="True"  Margin="0 4"/>
+
+        <Button Name="SaveButton" Text="{Loc 'bloodstream-reference-admin-ui-save'}" HorizontalExpand="True" Margin="0 4" />
+    </BoxContainer>
+</DefaultWindow>
