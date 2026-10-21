@@ -39,6 +39,9 @@ using Content.Server._Impstation.StrangeMoods; // imp
 using Content.Server._Impstation.StrangeMoods.Eui; // imp
 using Content.Shared._Impstation.StrangeMoods; // imp
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Content.Shared.Body.Components;
+using Content.Server.Body.Systems;
+using Content.Server._Impstation.Body.Eui;
 
 namespace Content.Server.Administration.Systems
 {
@@ -427,6 +430,25 @@ namespace Content.Server.Administration.Systems
                             ui.UpdateMoods((args.Target, moods));
                         },
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
+                    });
+                }
+
+                if (TryComp<BloodstreamComponent>(args.Target, out var blood))
+                {
+                    args.Verbs.Add(new Verb()
+                    {
+                        Text = Loc.GetString("bloodstream-modify-ui-verb"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            var ui = new BloodstreamReferenceEui(_bloodstreamSystem, EntityManager, _adminManager);
+                            if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
+                                return;
+
+                            _euiManager.OpenEui(ui, session);
+                            ui.UpdateBloodstream((args.Target, blood));
+                        },
+                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Alerts/Bleed.rsi"), "bleed10")
                     });
                 }
                 // End Impstation Additions
