@@ -81,9 +81,9 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
     {
         // this sucks but getting nullspaced sucks more. Should only be a handful of RuleGridsComponents as most things
         // are used with Visiting roles, spawned with the grid, rather than using a SpawnPoint.
-        var query = EntityQueryEnumerator<RuleGridsComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<RuleGridsComponent>();
 
-        while (query.MoveNext(out var uid, out var comp, out var xform))
+        while (query.MoveNext(out var uid, out var comp))
         {
             // the ShuttleComponent exists on args Entity, which should exist in the MapGrids of the comp
             if (!comp.MapGrids.Contains(args.Entity))
