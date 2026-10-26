@@ -26,6 +26,11 @@
   - type: SliceableFood
     count: 5
     slice: FoodLemoSlice
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceLemo
+        Quantity: 10
   - type: Tag
     tags:
     - Fruit

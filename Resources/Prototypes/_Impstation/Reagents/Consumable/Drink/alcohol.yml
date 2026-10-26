@@ -1197,3 +1197,40 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+
+- type: reagent
+  id: MagicPlanet
+  name: reagent-name-magic-planet
+  parent: BaseAlcohol
+  desc: reagent-desc-magic-planet
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: magicplanet
+  color: "#51a4cc"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.08
+
+- type: reagent
+  id: Footwerk
+  name: reagent-name-footwerk
+  parent: BaseAlcohol
+  desc: reagent-desc-footwerk
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: footwerk
+  color: "#b7badb"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.08
+      - !type:AdjustReagent
+        reagent: Ephedrine
+        amount: 0.2

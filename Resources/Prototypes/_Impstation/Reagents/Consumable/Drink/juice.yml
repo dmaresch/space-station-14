@@ -6,3 +6,12 @@
   physicalDesc: reagent-physical-desc-floral
   flavor: rose
   color: "#ffb0b0"
+
+- type: reagent
+  id: JuiceLemo
+  name: reagent-name-juice-lemo
+  parent: BaseJuice
+  desc: reagent-desc-juice-lemo
+  physicalDesc: reagent-physical-desc-citrusy
+  flavor: lemo
+  color: "#d99bb0"

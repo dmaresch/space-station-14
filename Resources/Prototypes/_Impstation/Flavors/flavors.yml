@@ -598,3 +598,18 @@
   id: hardtack
   flavorType: Complex
   description: flavor-complex-hardtack
+
+- type: flavor
+  id: lemo
+  flavorType: Complex
+  description: flavor-complex-lemo
+
+- type: flavor
+  id: magicworld
+  flavorType: Complex
+  description: flavor-complex-magicworld
+
+- type: flavor
+  id: footwerk
+  flavorType: Complex
+  description: flavor-complex-footwerk

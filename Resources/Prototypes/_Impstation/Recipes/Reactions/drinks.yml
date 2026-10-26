@@ -847,3 +847,27 @@
       amount: 1
   products:
     CafeLatteVanilla: 6
+
+- type: reaction
+  id: MagicPlanet
+  requiredMixerCategories:
+  reactants:
+    JuiceLemo:
+      amount: 2
+    BlueCuracao:
+      amount: 1
+    SpaceMountainWind:
+      amount: 1
+  products:
+    MagicPlanet: 4
+
+- type: reaction
+  id: Footwerk
+  requiredMixerCategories:
+  reactants:
+    MagicPlanet:
+      amount: 1
+    Ephedrine:
+      amount: 1
+  products:
+    Footwerk: 2
