@@ -34,7 +34,7 @@ public sealed class DelayedItemSystem : EntitySystem
     /// </summary>
     private void OnHandEquipped(Entity<DelayedItemComponent> ent, ref GotEquippedHandEvent args)
     {
-        QueueDel(ent);
+        QueueDel(ent); // imp edit, QueueDel replacement
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public sealed class DelayedItemSystem : EntitySystem
     /// </summary>
     private void OnDropAttempt(Entity<DelayedItemComponent> ent, ref DropAttemptEvent args)
     {
-        Del(ent);
+        Del(ent); // imp edit, Del replacement
     }
 
     /// <summary>
@@ -51,6 +51,6 @@ public sealed class DelayedItemSystem : EntitySystem
     private void OnDamageChanged(Entity<DelayedItemComponent> ent, ref DamageChangedEvent args)
     {
         Spawn(ent.Comp.Item, Transform(ent).Coordinates);
-        Del(ent);
+        Del(ent); // imp edit, Del replacement
     }
 }
